@@ -129,7 +129,7 @@ export class MoviesComponent implements OnInit {
       (favorite) => favorite.movieId === movieId && favorite.userId === userId
     );
     if (FIND) {
-      return 'red';
+      return '#c2185b';
     } else {
       return 'white';
     }
