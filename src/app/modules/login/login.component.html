@@ -1,0 +1,48 @@
+<div id="container">
+  <div id="modal">
+    <h2 mat-dialog-title>Login</h2>
+    <mat-dialog-content>
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div class="form-group">
+          <mat-form-field>
+            <mat-label for="email">Email</mat-label>
+            <input
+              matInput
+              type="email"
+              id="email"
+              ngModel
+              name="email"
+              required
+              #email="ngModel"
+            />
+          </mat-form-field>
+        </div>
+        <p *ngIf="email.invalid && email.touched">Campo obbligatorio</p>
+        <div class="form-group mb-4">
+          <mat-form-field>
+            <mat-label for="password">Password</mat-label>
+            <input
+              matInput
+              type="password"
+              id="password"
+              required
+              ngModel
+              name="password"
+              #password="ngModel"
+            />
+          </mat-form-field>
+          <p *ngIf="password.invalid && password.touched">Campo obbligatorio</p>
+        </div>
+
+        <button type="submit" mat-raised-button color="primary">Login</button>
+      </form>
+    </mat-dialog-content>
+    <div *ngIf="errorMessage" class="alert alert-danger my-2" role="alert">
+      {{ errorMessage }}
+    </div>
+    <p class="my-3">
+      Non sei registrato ? puoi farlo cliccando
+      <a routerLink="/register">qui</a>
+    </p>
+  </div>
+</div>

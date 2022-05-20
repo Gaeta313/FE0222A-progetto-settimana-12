@@ -1,0 +1,17 @@
+
+ <div id="container">
+    <div>
+      <h2 class="navbar-brand" >Menu</h2>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active"  routerLink="" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/profile" routerLinkActive="active">Profile</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" (click)="onLogout()" >Logout</button>
+    </div>
+ </div>

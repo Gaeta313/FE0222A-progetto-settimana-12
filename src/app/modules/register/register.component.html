@@ -1,0 +1,64 @@
+<div id="container">
+  <div id="modal">
+    <h2 mat-dialog-title>Register</h2>
+    <mat-dialog-content>
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div class="form-group">
+          <mat-form-field>
+            <label for="name">Name</label>
+            <input
+              matInput
+              type="text"
+              id="name"
+              required
+              ngModel
+              name="name"
+              #name="ngModel"
+            />
+          </mat-form-field>
+        </div>
+        <p *ngIf="name.invalid && name.touched">Campo Obbligatorio</p>
+        <div class="form-group">
+          <mat-form-field>
+            <label for="email">Email</label>
+            <input
+              matInput
+              type="email"
+              id="email"
+              required
+              ngModel
+              name="email"
+              #email="ngModel"
+              email="true"
+            />
+          </mat-form-field>
+        </div>
+        <p *ngIf="!email.dirty && email.touched">Campo Obbligatorio</p>
+        <p *ngIf="email.invalid && email.touched && email.dirty">
+          Formato email non valido
+        </p>
+        <div class="form-group mb-4">
+          <mat-form-field>
+            <label for="password">Password</label>
+            <input
+              matInput
+              type="password"
+              id="password"
+              required
+              ngModel
+              name="password"
+              #password="ngModel"
+            />
+          </mat-form-field>
+        </div>
+        <p *ngIf="password.invalid && password.touched">Campo Obbligatorio</p>
+        <button type="submit" mat-raised-button color="primary">
+          Register
+        </button>
+      </form>
+    </mat-dialog-content>
+    <div *ngIf="errorMessage" class="alert alert-danger my-2" role="alert">
+      {{ errorMessage }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>{{data.movie.title}}</h1>
+<div mat-dialog-content>
+  <img
+    [src]="'https://image.tmdb.org/t/p/w500' + data.movie.backdrop_path"
+    width="50%"
+    alt=""
+  />
+  <h2>Trama:</h2>
+  <p>{{data.movie.overview}}</p>
+  <p *ngIf="data.movie.overview.length ==0">
+    Non ci sono dettagli sulla trama di questo film
+  </p>
+  <h2>Info</h2>
+  <p>Titolo Originale : {{data.movie.original_title}}</p>
+  <p>Data di Uscita: {{data.movie.release_date}}</p>
+  <p>Voto Medio : {{data.movie.vote_average}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="primary">Chiudi</button>
+</div>

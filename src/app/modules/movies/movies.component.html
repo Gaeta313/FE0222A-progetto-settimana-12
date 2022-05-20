@@ -1,0 +1,55 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="mb-4" color="primary"
+      ><h1>Movies</h1>
+      <div>
+        <form>
+          <mat-form-field>
+            <mat-label>Generi</mat-label>
+            <mat-select
+              (ngModelChange)="onSelect($event)"
+              ngModel
+              name="valore"
+            >
+              <mat-option [value]="0">Tutti</mat-option>
+              <mat-option *ngFor="let genere of generi" [value]="genere.id">
+                {{ genere.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </div></mat-toolbar
+    >
+    <mat-spinner id="mainSpinner" *ngIf="loading"></mat-spinner>
+    <div *ngIf="!loading" id="container">
+      <mat-card *ngFor="let movie of movies$ | async">
+        <mat-card-content
+          ><img [src]="baseUrl + movie.poster_path" width="100%"
+        /></mat-card-content>
+        <mat-card-actions
+          ><button mat-raised-button (click)="miPiace(movie.id, loggedUserID!)">
+            <mat-spinner
+              diameter="30"
+              id="likeSpinner"
+              *ngIf="loadingLike"
+            ></mat-spinner>
+            <mat-icon
+              *ngIf="!loadingLike"
+              [style.color]="getColor(movie.id, loggedUserID!)"
+              >favorite</mat-icon
+            >
+          </button>
+          <button mat-raised-button color="primary" (click)="openDialog(movie)">
+            Info
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      <h1 *ngIf="movies.length == 0" class="text-center my-5">
+        Nessuna corrispondenza trovata
+      </h1>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

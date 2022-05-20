@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  logged:Boolean = true;
   title = 'FE0222A-progetto-settimana-12';
 }
