@@ -30,7 +30,7 @@
           ><img [src]="baseUrl + movie.poster_path" width="100%"
         /></mat-card-content>
         <mat-card-actions
-          ><button mat-raised-button (click)="miPiace(movie.id, loggedUserID!)">
+          ><button [disabled]="loadingLike" mat-raised-button (click)="miPiace(movie.id, loggedUserID!)">
             <mat-spinner
               diameter="30"
               id="likeSpinner"
