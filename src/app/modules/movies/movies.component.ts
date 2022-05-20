@@ -138,7 +138,6 @@ export class MoviesComponent implements OnInit {
   ngOnDestroy() {
     this.subMovies.unsubscribe();
     this.subLog.unsubscribe();
-    this.subFav.unsubscribe();
   }
 }
 
