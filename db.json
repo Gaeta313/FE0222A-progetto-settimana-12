@@ -60,6 +60,31 @@
       "movieId": 567189,
       "userId": 2,
       "id": 12
+    },
+    {
+      "movieId": 527774,
+      "userId": 2,
+      "id": 13
+    },
+    {
+      "movieId": 615457,
+      "userId": 2,
+      "id": 14
+    },
+    {
+      "movieId": 399566,
+      "userId": 2,
+      "id": 15
+    },
+    {
+      "movieId": 399566,
+      "userId": 3,
+      "id": 16
+    },
+    {
+      "movieId": 615457,
+      "userId": 3,
+      "id": 17
     }
   ],
   "genres": [
